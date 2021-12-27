@@ -11,7 +11,7 @@ struct RemindView: View {
     var body: some View {
         VStack {
             Spacer()
-//            DropdownView(viewModel: )
+            //            DropdownView(viewModel: )
             Spacer()
             Button(action: {
                 
@@ -35,7 +35,7 @@ struct RemindView: View {
 struct RemindView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        RemindView()
+            RemindView()
         }
     }
 }

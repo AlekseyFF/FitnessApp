@@ -6,65 +6,80 @@
 //
 
 import SwiftUI
+import Combine
+import Firebase
+
+typealias UserId = String
 
 final class CreateChallengeViewModel: ObservableObject {
-    @Published var dropdowns: [ChallengePartViewModel] = [
-        .init(type: .exercise),
-        .init(type: .startAmount),
-        .init(type: .increase),
-        .init(type: .length)
-    ]
+
+    @Published var exerciseDropdown = ChallengePartViewModel(type: .exercise)
+    @Published var startAmountDropdown = ChallengePartViewModel(type: .startAmount)
+    @Published var increaseDropdown = ChallengePartViewModel(type: .increase)
+    @Published var lengthDropdown = ChallengePartViewModel(type: .length)
+    
+    private let userService: UserServiceProtocol
+    private var cancellables: [AnyCancellable] = []
     
     enum Action {
-        case selectOption(index: Int)
+        case createChallenge
     }
     
-    var hasSelectedDropdown: Bool {
-        selectedDropdownIndex != nil
-    }
-    var selectedDropdownIndex: Int? {
-        dropdowns.enumerated().first(where: { $0.element.isSelected })?.offset
-    }
-    var displayedOptions: [DropdownOption] {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return [] }
-
-        return dropdowns[selectedDropdownIndex].options
+    init(userService: UserServiceProtocol = UserService()) {
+        self.userService = userService
     }
     
     func send(_ action: Action) {
         switch action {
-        case let .selectOption(index) :
-            guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-            clearSelectedOptions()
-            dropdowns[selectedDropdownIndex].options[index].isSelected = true
-            clearSelectedDropdown()
+        case .createChallenge:
+            currentUserId().sink { completion in
+                switch completion {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case .finished:
+                    print("completed")
+                }
+            } receiveValue: { userId in
+                print("retrieved user id = \(userId)")
+            }.store(in: &cancellables)
+            
         }
     }
-    func clearSelectedOptions() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-
-        dropdowns[selectedDropdownIndex].options.indices.forEach { index in
-            dropdowns[selectedDropdownIndex].options[index].isSelected = false
-        }
+    
+    private func currentUserId() -> AnyPublisher<UserId, Error> {
+        print("getting user id")
+        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
+            if let userId = user?.uid {
+                print("user is logged in...")
+                
+                return Just(userId)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            } else {
+                print("user is being logged in anonymously...")
+                
+                return self.userService
+                    .signInAnonymously()
+                    .map { $0.uid }
+                    .eraseToAnyPublisher()
+            }
+        }.eraseToAnyPublisher()
     }
-    func clearSelectedDropdown() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-
-        dropdowns[selectedDropdownIndex].isSelected = false
-        }
-    }
+}
 
 
 extension CreateChallengeViewModel {
     
     struct ChallengePartViewModel: DropdownItemProtocol {
+        var selectedOption: DropdownOption
+        
         
         var options: [DropdownOption]
         var headerTitle: String {
             type.rawValue
         }
         var dropdownTitle: String {
-            options.first(where: { $0.isSelected })?.formatted ?? ""
+            selectedOption.formatted
         }
         var isSelected: Bool = false
         
@@ -83,6 +98,7 @@ extension CreateChallengeViewModel {
                 self.options = LengthOption.allCases.map { $0.toDropdownOption}
             }
             self.type = type
+            self.selectedOption = options.first!
             
         }
         
@@ -96,7 +112,7 @@ extension CreateChallengeViewModel {
         enum ExerciceOption: String, CaseIterable, DropdownOptionProtocol {
             
             var toDropdownOption: DropdownOption {
-                .init(type: .text(rawValue), formatted: rawValue.capitalized, isSelected: self == .pullups)
+                .init(type: .text(rawValue), formatted: rawValue.capitalized)
             }
             
             case pullups
@@ -108,7 +124,7 @@ extension CreateChallengeViewModel {
         enum StartOption: Int, CaseIterable, DropdownOptionProtocol {
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "\(rawValue)", isSelected: self == .one)
+                .init(type: .number(rawValue), formatted: "\(rawValue)")
             }
             
             case one = 1, two, three, four, five
@@ -117,7 +133,7 @@ extension CreateChallengeViewModel {
         enum IncreaseOption: Int, CaseIterable, DropdownOptionProtocol {
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "+\(rawValue)", isSelected: self == .one)
+                .init(type: .number(rawValue), formatted: "+\(rawValue)")
             }
             
             case one = 1, two, three, four, five
@@ -126,7 +142,7 @@ extension CreateChallengeViewModel {
         enum LengthOption: Int, CaseIterable, DropdownOptionProtocol {
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "\(rawValue) days", isSelected: self == .seven)
+                .init(type: .number(rawValue), formatted: "\(rawValue) days")
             }
             
             case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28
