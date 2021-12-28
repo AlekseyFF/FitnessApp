@@ -18,14 +18,9 @@ struct CreateView: View {
             DropdownView(viewModel: $viewModel.increaseDropdown)
             DropdownView(viewModel: $viewModel.lengthDropdown)
         }
-//        ForEach(viewModel.dropdowns.indices, id: \.self) { index in
-//            DropdownView(viewModel: $viewModel.dropdowns[index])
-//        }
     }
     
-    
-    
-    var body: some View {
+    var mainContentView: some View {
         ScrollView {
             VStack {
                 dropdownList
@@ -39,12 +34,27 @@ struct CreateView: View {
                 }
                 
             }
-            .navigationTitle("Create")
-            .navigationBarHidden(true)
-            .padding(.bottom, 15)
         }
     }
+    
+    var body: some View {
+        ZStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                mainContentView
+            }
+        }.alert(isPresented: Binding<Bool>.constant($viewModel.error.wrappedValue != nil)) {
+            Alert(title: Text("Error!"), message: Text($viewModel.error.wrappedValue?.localizedDescription ?? ""), dismissButton: .default(Text("OK"), action: {
+                viewModel.error = nil
+            }))
+        }
+        .navigationTitle("Create")
+        .navigationBarHidden(true)
+        .padding(.bottom, 15)
+    }
 }
+
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {

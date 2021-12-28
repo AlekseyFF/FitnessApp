@@ -18,55 +18,75 @@ final class CreateChallengeViewModel: ObservableObject {
     @Published var increaseDropdown = ChallengePartViewModel(type: .increase)
     @Published var lengthDropdown = ChallengePartViewModel(type: .length)
     
+    @Published var error: IncrementError?
+    @Published var isLoading = false
+    
     private let userService: UserServiceProtocol
     private var cancellables: [AnyCancellable] = []
+    private let challengeService: ChallengeServiceProtocol
     
     enum Action {
         case createChallenge
     }
     
-    init(userService: UserServiceProtocol = UserService()) {
+    init(userService: UserServiceProtocol = UserService(), challengeService: ChallengeServiceProtocol = ChallengeService()) {
         self.userService = userService
+        self.challengeService = challengeService
     }
     
     func send(_ action: Action) {
         switch action {
         case .createChallenge:
-            currentUserId().sink { completion in
+            isLoading = true
+            currentUserId().flatMap { userId -> AnyPublisher<Void, IncrementError> in
+                return self.createChallenge(userId: userId)
+            }.sink { completion in
+                self.isLoading = false
                 switch completion {
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self.error = error
                 case .finished:
-                    print("completed")
+                    print("finished")
                 }
-            } receiveValue: { userId in
-                print("retrieved user id = \(userId)")
+            } receiveValue: { _ in
+                print("success")
             }.store(in: &cancellables)
             
         }
     }
     
-    private func currentUserId() -> AnyPublisher<UserId, Error> {
+    private func createChallenge(userId: UserId) -> AnyPublisher<Void, IncrementError> {
+        guard let exercise = exerciseDropdown.text,
+              let startAmount = startAmountDropdown.number,
+              let increase = increaseDropdown.number,
+              let lenhth = lengthDropdown.number else { return Fail(error: .default(desctiption: "Parsing error")).eraseToAnyPublisher()}
+        let challenge = Challenge(exercise: exercise, startAmount: startAmount, increase: increase, length: lenhth, userId: userId, startDate: Date())
+        return challengeService.create(challenge).eraseToAnyPublisher()
+    }
+    
+    private func currentUserId() -> AnyPublisher<UserId, IncrementError> {
         print("getting user id")
-        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
-            if let userId = user?.uid {
-                print("user is logged in...")
-                
-                return Just(userId)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            } else {
-                print("user is being logged in anonymously...")
-                
-                return self.userService
-                    .signInAnonymously()
-                    .map { $0.uid }
-                    .eraseToAnyPublisher()
-            }
+        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, IncrementError> in
+            return Fail(error: .auth(description: "some firebase auth error")).eraseToAnyPublisher()
+//            if let userId = user?.uid {
+//                print("user is logged in...")
+//
+//                return Just(userId)
+//                    .setFailureType(to: IncrementError.self)
+//                    .eraseToAnyPublisher()
+//            } else {
+//                print("user is being logged in anonymously...")
+//
+//                return self.userService
+//                    .signInAnonymously()
+//                    .map { $0.uid }
+//                    .eraseToAnyPublisher()
+//            }
         }.eraseToAnyPublisher()
     }
 }
 
+// MARK: Extensions
 
 extension CreateChallengeViewModel {
     
@@ -147,5 +167,20 @@ extension CreateChallengeViewModel {
             
             case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28
         }
+    }
+}
+
+extension CreateChallengeViewModel.ChallengePartViewModel {
+    var text: String? {
+        if case let .text(text) = selectedOption.type {
+            return text
+        }
+        return nil
+    }
+    var number: Int? {
+        if case let .number(number) = selectedOption.type {
+            return number
+        }
+        return nil
     }
 }
