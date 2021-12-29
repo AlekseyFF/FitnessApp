@@ -16,13 +16,8 @@ struct FitnessAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if AppState.isLoggedIn {
-                TabView {
-                    Text("Log")
-                        .tabItem{
-                          Image(systemName: "book")
-                        }
-                }.accentColor(.purple)
+            if appState.isLoggedIn {
+                TabContainerView()
             } else {
                 LandingView()
             }
