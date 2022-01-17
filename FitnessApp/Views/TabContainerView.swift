@@ -10,13 +10,12 @@ import SwiftUI
 struct TabContainerView: View {
     @StateObject private var tabContainerViewModel = TabContainerViewModel()
     var body: some View {
-        TabView(selection: $tabContainerViewModel.selectedTab) {
-            ForEach(tabContainerViewModel.tabItemViewModels, id: \.self) { viewModel in
-                tabView(for: viewModel.type)
-                    .tabItem {
-                        Image(systemName: viewModel.imageName)
-                        Text(viewModel.title)
-                    }.tag(viewModel.type)
+        TabView(selection: self.$tabContainerViewModel.selectedTab) {
+            ForEach(tabContainerViewModel.tabItemViewModel, id: \.self) { viewModel in
+                tabView(for: viewModel.type).tabItem {
+                    Image(systemName: viewModel.imageName)
+                    Text(viewModel.title)
+                }.tag(viewModel.type)
             }
         }.accentColor(.purple)
     }
@@ -30,7 +29,9 @@ struct TabContainerView: View {
                 ChallengeListView()
             }
         case .settings:
-            Text("Settings")
+            NavigationView {
+                SettingsView()
+            }
         }
     }
 }
@@ -38,9 +39,11 @@ struct TabContainerView: View {
 final class TabContainerViewModel: ObservableObject {
     @Published var selectedTab: TabItemViewModel.TabItemType = .challengeList
     
-    let tabItemViewModels = [TabItemViewModel(imageName: "book", title: "Activity log", type: .log),
-                             .init(imageName: "list.bullet", title: "Challenges", type: .challengeList),
-                             .init(imageName: "gear", title: "Settings", type: .settings)]
+    let tabItemViewModel = [
+        TabItemViewModel(imageName: "book", title: "Activity Log", type: .log),
+        .init(imageName: "list.bullet", title: "Challenges", type: .challengeList),
+        .init(imageName: "gear", title: "Settings", type: .settings)
+    ]
 }
 
 struct TabItemViewModel: Hashable {
@@ -54,3 +57,4 @@ struct TabItemViewModel: Hashable {
         case settings
     }
 }
+

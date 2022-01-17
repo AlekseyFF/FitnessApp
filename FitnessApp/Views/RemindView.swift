@@ -11,24 +11,21 @@ struct RemindView: View {
     var body: some View {
         VStack {
             Spacer()
-            //            DropdownView(viewModel: )
+//            DropDownView()
             Spacer()
             Button(action: {
                 
             }) {
-                Text("Create")
-                    .font(.system(size: 24, weight: .medium))
-                    .foregroundColor(.primary)
+                Text("Create").font(.system(size: 24, weight: .medium)).foregroundColor(.primary)
             }.padding(.bottom, 15)
+            
             Button(action: {
                 
             }) {
-                Text("Skip")
-                    .font(.system(size: 24, weight: .medium))
-                    .foregroundColor(.primary)
+                Text("Skip").font(.system(size: 24, weight: .medium)).foregroundColor(.primary)
             }
-        }.navigationTitle("Remind")
-            .padding(.bottom, 15)
+        }.navigationBarTitle("Remind")
+        .padding(.bottom, 15)
     }
 }
 

@@ -16,12 +16,23 @@
 		6D162509277B855200154D89 /* IncrementError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D162508277B855200154D89 /* IncrementError.swift */; };
 		6D16250C277B8BEF00154D89 /* AuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D16250B277B8BEF00154D89 /* AuthPublisher.swift */; };
 		6D380A162776449100E7E22C /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D380A152776449100E7E22C /* CreateChallengeViewModel.swift */; };
-		6D380A182776453000E7E22C /* DroopdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D380A172776453000E7E22C /* DroopdownItemProtocol.swift */; };
+		6D380A182776453000E7E22C /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D380A172776453000E7E22C /* DropdownItemProtocol.swift */; };
 		6D5A333D2774F5CF0087DC86 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A333C2774F5CF0087DC86 /* PrimaryButtonStyle.swift */; };
 		6D5A333F2774F6EE0087DC86 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A333E2774F6EE0087DC86 /* Color+Extension.swift */; };
 		6D5A33412774FDE90087DC86 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A33402774FDE90087DC86 /* CreateView.swift */; };
 		6D5A33432774FE290087DC86 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A33422774FE290087DC86 /* DropdownView.swift */; };
 		6D5A33452775020B0087DC86 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A33442775020B0087DC86 /* RemindView.swift */; };
+		6DA650F0278CA922008C7033 /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650EF278CA922008C7033 /* ChallengeItemViewModel.swift */; };
+		6DA650F2278CA956008C7033 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650F1278CA956008C7033 /* LandingViewModel.swift */; };
+		6DA650F4278CA974008C7033 /* LoginSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650F3278CA974008C7033 /* LoginSignUpViewModel.swift */; };
+		6DA650F6278CA998008C7033 /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650F5278CA998008C7033 /* ProgressCircleViewModel.swift */; };
+		6DA650F8278CA9B3008C7033 /* SettingItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650F7278CA9B3008C7033 /* SettingItemViewModel.swift */; };
+		6DA650FA278CA9D3008C7033 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650F9278CA9D3008C7033 /* SettingsViewModel.swift */; };
+		6DA650FD278CAA77008C7033 /* ChallengeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650FC278CAA77008C7033 /* ChallengeItemView.swift */; };
+		6DA650FF278CAADF008C7033 /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA650FE278CAADF008C7033 /* LoginSignupView.swift */; };
+		6DA65101278CAB08008C7033 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA65100278CAB08008C7033 /* ProgressCircleView.swift */; };
+		6DA65103278CAB5E008C7033 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA65102278CAB5E008C7033 /* SettingsView.swift */; };
+		6DA65108278CAD72008C7033 /* TextFieldCustomRoundedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA65107278CAD72008C7033 /* TextFieldCustomRoundedStyle.swift */; };
 		6DC7FB662774EF9C006F6BB6 /* FitnessAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC7FB652774EF9C006F6BB6 /* FitnessAppApp.swift */; };
 		6DC7FB682774EF9C006F6BB6 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC7FB672774EF9C006F6BB6 /* LandingView.swift */; };
 		6DC7FB6A2774EF9D006F6BB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC7FB692774EF9D006F6BB6 /* Assets.xcassets */; };
@@ -44,12 +55,23 @@
 		6D162508277B855200154D89 /* IncrementError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementError.swift; sourceTree = "<group>"; };
 		6D16250B277B8BEF00154D89 /* AuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPublisher.swift; sourceTree = "<group>"; };
 		6D380A152776449100E7E22C /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
-		6D380A172776453000E7E22C /* DroopdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroopdownItemProtocol.swift; sourceTree = "<group>"; };
+		6D380A172776453000E7E22C /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
 		6D5A333C2774F5CF0087DC86 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		6D5A333E2774F6EE0087DC86 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		6D5A33402774FDE90087DC86 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		6D5A33422774FE290087DC86 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		6D5A33442775020B0087DC86 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
+		6DA650EF278CA922008C7033 /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
+		6DA650F1278CA956008C7033 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		6DA650F3278CA974008C7033 /* LoginSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpViewModel.swift; sourceTree = "<group>"; };
+		6DA650F5278CA998008C7033 /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
+		6DA650F7278CA9B3008C7033 /* SettingItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemViewModel.swift; sourceTree = "<group>"; };
+		6DA650F9278CA9D3008C7033 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		6DA650FC278CAA77008C7033 /* ChallengeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemView.swift; sourceTree = "<group>"; };
+		6DA650FE278CAADF008C7033 /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
+		6DA65100278CAB08008C7033 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		6DA65102278CAB5E008C7033 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6DA65107278CAD72008C7033 /* TextFieldCustomRoundedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomRoundedStyle.swift; sourceTree = "<group>"; };
 		6DC7FB622774EF9C006F6BB6 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC7FB652774EF9C006F6BB6 /* FitnessAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppApp.swift; sourceTree = "<group>"; };
 		6DC7FB672774EF9C006F6BB6 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -94,11 +116,59 @@
 		6D380A142776447D00E7E22C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6DA650EF278CA922008C7033 /* ChallengeItemViewModel.swift */,
 				6D0D1B3F277CD7A80052ADD2 /* ChallengeListViewModel.swift */,
 				6D380A152776449100E7E22C /* CreateChallengeViewModel.swift */,
-				6D380A172776453000E7E22C /* DroopdownItemProtocol.swift */,
+				6D380A172776453000E7E22C /* DropdownItemProtocol.swift */,
+				6DA650F1278CA956008C7033 /* LandingViewModel.swift */,
+				6DA650F3278CA974008C7033 /* LoginSignUpViewModel.swift */,
+				6DA650F5278CA998008C7033 /* ProgressCircleViewModel.swift */,
+				6DA650F7278CA9B3008C7033 /* SettingItemViewModel.swift */,
+				6DA650F9278CA9D3008C7033 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6DA650FB278CAA15008C7033 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6DA650FC278CAA77008C7033 /* ChallengeItemView.swift */,
+				6D0D1B3D277CD7990052ADD2 /* ChallengeListView.swift */,
+				6D5A33402774FDE90087DC86 /* CreateView.swift */,
+				6D5A33422774FE290087DC86 /* DropdownView.swift */,
+				6DC7FB672774EF9C006F6BB6 /* LandingView.swift */,
+				6DA650FE278CAADF008C7033 /* LoginSignupView.swift */,
+				6D5A333C2774F5CF0087DC86 /* PrimaryButtonStyle.swift */,
+				6DA65100278CAB08008C7033 /* ProgressCircleView.swift */,
+				6D5A33442775020B0087DC86 /* RemindView.swift */,
+				6DA65102278CAB5E008C7033 /* SettingsView.swift */,
+				6D0D1B3B277CD2340052ADD2 /* TabContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6DA65104278CACDF008C7033 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				6D162508277B855200154D89 /* IncrementError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		6DA65105278CAD10008C7033 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6D5A333E2774F6EE0087DC86 /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6DA65106278CAD5E008C7033 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				6DA65107278CAD72008C7033 /* TextFieldCustomRoundedStyle.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		6DC7FB592774EF9C006F6BB6 = {
@@ -120,20 +190,15 @@
 		6DC7FB642774EF9C006F6BB6 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
-				6D16250A277B8BDB00154D89 /* Publishers */,
+				6DC7FB652774EF9C006F6BB6 /* FitnessAppApp.swift */,
+				6DA65104278CACDF008C7033 /* Errors */,
+				6DA65105278CAD10008C7033 /* Extensions */,
 				6D162503277B7FE700154D89 /* Models */,
+				6DA65106278CAD5E008C7033 /* Modifiers */,
+				6D16250A277B8BDB00154D89 /* Publishers */,
 				6DCA36FB277A439C0074974F /* Services */,
 				6D380A142776447D00E7E22C /* ViewModel */,
-				6DC7FB652774EF9C006F6BB6 /* FitnessAppApp.swift */,
-				6DC7FB672774EF9C006F6BB6 /* LandingView.swift */,
-				6D5A333C2774F5CF0087DC86 /* PrimaryButtonStyle.swift */,
-				6D0D1B3B277CD2340052ADD2 /* TabContainerView.swift */,
-				6D0D1B3D277CD7990052ADD2 /* ChallengeListView.swift */,
-				6D5A333E2774F6EE0087DC86 /* Color+Extension.swift */,
-				6D5A33402774FDE90087DC86 /* CreateView.swift */,
-				6D5A33442775020B0087DC86 /* RemindView.swift */,
-				6D5A33422774FE290087DC86 /* DropdownView.swift */,
-				6D162508277B855200154D89 /* IncrementError.swift */,
+				6DA650FB278CAA15008C7033 /* Views */,
 				6DCA36F0277A3C760074974F /* GoogleService-Info.plist */,
 				6DC7FB692774EF9D006F6BB6 /* Assets.xcassets */,
 				6DC7FB6B2774EF9D006F6BB6 /* Preview Content */,
@@ -238,24 +303,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DA65108278CAD72008C7033 /* TextFieldCustomRoundedStyle.swift in Sources */,
 				6D16250C277B8BEF00154D89 /* AuthPublisher.swift in Sources */,
 				6D5A333D2774F5CF0087DC86 /* PrimaryButtonStyle.swift in Sources */,
 				6DC7FB682774EF9C006F6BB6 /* LandingView.swift in Sources */,
-				6D380A182776453000E7E22C /* DroopdownItemProtocol.swift in Sources */,
+				6D380A182776453000E7E22C /* DropdownItemProtocol.swift in Sources */,
 				6DC7FB662774EF9C006F6BB6 /* FitnessAppApp.swift in Sources */,
 				6D162505277B7FF700154D89 /* Challenge.swift in Sources */,
+				6DA650F2278CA956008C7033 /* LandingViewModel.swift in Sources */,
 				6D5A333F2774F6EE0087DC86 /* Color+Extension.swift in Sources */,
 				6D380A162776449100E7E22C /* CreateChallengeViewModel.swift in Sources */,
 				6DCA36FD277A43AD0074974F /* UserService.swift in Sources */,
+				6DA650F4278CA974008C7033 /* LoginSignUpViewModel.swift in Sources */,
+				6DA650F6278CA998008C7033 /* ProgressCircleViewModel.swift in Sources */,
+				6DA650FF278CAADF008C7033 /* LoginSignupView.swift in Sources */,
+				6DA650FD278CAA77008C7033 /* ChallengeItemView.swift in Sources */,
 				6D0D1B3C277CD2340052ADD2 /* TabContainerView.swift in Sources */,
 				6D0D1B40277CD7A80052ADD2 /* ChallengeListViewModel.swift in Sources */,
 				6D0D1B42277CD88A0052ADD2 /* QuerySnapshotPublisher.swift in Sources */,
 				6D5A33452775020B0087DC86 /* RemindView.swift in Sources */,
 				6D162507277B80AC00154D89 /* ChallengeService.swift in Sources */,
+				6DA650F0278CA922008C7033 /* ChallengeItemViewModel.swift in Sources */,
 				6D0D1B3E277CD7990052ADD2 /* ChallengeListView.swift in Sources */,
+				6DA65103278CAB5E008C7033 /* SettingsView.swift in Sources */,
 				6D5A33412774FDE90087DC86 /* CreateView.swift in Sources */,
+				6DA65101278CAB08008C7033 /* ProgressCircleView.swift in Sources */,
 				6D5A33432774FE290087DC86 /* DropdownView.swift in Sources */,
+				6DA650F8278CA9B3008C7033 /* SettingItemViewModel.swift in Sources */,
 				6D162509277B855200154D89 /* IncrementError.swift in Sources */,
+				6DA650FA278CA9D3008C7033 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

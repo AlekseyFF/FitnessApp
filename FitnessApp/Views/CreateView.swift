@@ -8,31 +8,28 @@
 import SwiftUI
 
 struct CreateView: View {
-    
     @StateObject var viewModel = CreateChallengeViewModel()
+    @State var isActive: Bool = false
     
-    var dropdownList: some View {
+    var dropDownList: some View {
         Group {
-            DropdownView(viewModel: $viewModel.exerciseDropdown)
-            DropdownView(viewModel: $viewModel.startAmountDropdown)
-            DropdownView(viewModel: $viewModel.increaseDropdown)
-            DropdownView(viewModel: $viewModel.lengthDropdown)
+            DropDownView(viewModel: $viewModel.exerciseDropDown)
+            DropDownView(viewModel: $viewModel.startAmountDropDown)
+            DropDownView(viewModel: $viewModel.increaseDropDown)
+            DropDownView(viewModel: $viewModel.lengthDropDown)
         }
     }
     
     var mainContentView: some View {
         ScrollView {
             VStack {
-                dropdownList
+                dropDownList
                 Spacer()
-                
                 Button(action: {
-                    viewModel.send(.createChallenge)
+                    viewModel.send(action: .createChallenge)
                 }) {
-                    Text("Create")
-                        .font(.system(size: 24, weight: .medium))
+                    Text("Create").font(.system(size: 24, weight: .medium)).foregroundColor(.primary)
                 }
-                
             }
         }
     }
@@ -41,20 +38,19 @@ struct CreateView: View {
         ZStack {
             if viewModel.isLoading {
                 ProgressView()
-            } else {
-                mainContentView
+            }else {
+               mainContentView
             }
         }.alert(isPresented: Binding<Bool>.constant($viewModel.error.wrappedValue != nil)) {
             Alert(title: Text("Error!"), message: Text($viewModel.error.wrappedValue?.localizedDescription ?? ""), dismissButton: .default(Text("OK"), action: {
                 viewModel.error = nil
             }))
         }
-        .navigationTitle("Create")
-        .navigationBarHidden(true)
+        .navigationBarTitle("Create")
+        .navigationBarBackButtonHidden(true)
         .padding(.bottom, 15)
     }
 }
-
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {

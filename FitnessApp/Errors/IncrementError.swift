@@ -8,9 +8,8 @@
 import Foundation
 
 enum IncrementError: LocalizedError {
-    
     case auth(description: String)
-    case `default`(desctiption: String? = nil)
+    case `default`(description: String? = nil)
     
     var errorDescription: String? {
         switch self {
