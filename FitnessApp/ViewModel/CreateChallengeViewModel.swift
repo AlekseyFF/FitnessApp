@@ -124,16 +124,16 @@ extension CreateChallengeViewModel {
             self.selectedOption = options.first!
         }
         enum ChallengePartType: String, CaseIterable {
-            case exercise = "Exercise"
-            case startAmount = "Starting Amount"
-            case increase = "Daily Increase"
-            case length = "Challenge Length"
+            case exercise = "Упражнение"
+            case startAmount = "Количество"
+            case increase = "Ежедневная нагрузка"
+            case length = "Длина испытания"
         }
         
         enum ExerciseOption: String, CaseIterable, DropdownOptionProtocol {
-            case pullups
-            case pushups
-            case situps
+            case подтягивания
+            case отжимания
+            case приседания
             
             var toDropdownOption: DropdownOption {
                 .init(type: .text(rawValue), formatted: rawValue.capitalized)
@@ -160,7 +160,7 @@ extension CreateChallengeViewModel {
             case seven = 7, fourteen = 14, twentyOne =  21, twentyEigth = 28
             
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue), formatted: "\(rawValue) days")
+                .init(type: .number(rawValue), formatted: "\(rawValue) дней")
             }
         }
     }

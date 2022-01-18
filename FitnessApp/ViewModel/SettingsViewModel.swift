@@ -54,13 +54,13 @@ final class SettingsViewModel: ObservableObject {
     
     func buildItems(){
         itemViewModels = [
-            .init(title: userService.currentUser?.email ?? "Create Account", iconName: "person.circle", type: .account),
-            .init(title: "Switch to \(isDarkMode ? "Light" : "Dark") Mode", iconName: "lightbulb", type: .mode),
-            .init(title: "Privacy Policy", iconName: "shield", type: .privacy)
+            .init(title: userService.currentUser?.email ?? "Создать аккаунт", iconName: "person.circle", type: .account),
+            .init(title: "Изменить на \(isDarkMode ? "Светлую" : "Темную") тему", iconName: "lightbulb", type: .mode),
+            .init(title: "Политика безопасности", iconName: "shield", type: .privacy)
         ]
         
         if userService.currentUser?.email != nil {
-            itemViewModels += [.init(title: "Logout", iconName: "arrowshape.turn.up.left", type: .logout)]
+            itemViewModels += [.init(title: "Выйти", iconName: "arrowshape.turn.up.left", type: .logout)]
         }
     }
     func onAppear() {

@@ -44,7 +44,7 @@ struct ChallengeItemView: View {
             Button(action: {
                 viewModel.send(action: .toggleComplete)
             }) {
-                Text(viewModel.isDayComplete || viewModel.isComplete ? "Completed" : "Mark Done")
+                Text(viewModel.isDayComplete || viewModel.isComplete ? "Завершено" : "Выполнено")
             }
             .disabled(viewModel.isComplete)
             .padding(.vertical, 10)

@@ -35,14 +35,14 @@ final class LoginSignupViewModel: ObservableObject {
         case .login:
             return "Welcome back!"
         case .signup:
-            return "Create an account"
+            return "Создать аккаунт"
         }
     }
     
     var subTitle: String {
         switch mode {
         case .login:
-            return "Log in with your email"
+            return "Войти по учетной записи"
         case .signup:
             return "Sign up via email"
         }

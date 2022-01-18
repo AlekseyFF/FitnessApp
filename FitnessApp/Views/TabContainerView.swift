@@ -40,9 +40,9 @@ final class TabContainerViewModel: ObservableObject {
     @Published var selectedTab: TabItemViewModel.TabItemType = .challengeList
     
     let tabItemViewModel = [
-        TabItemViewModel(imageName: "book", title: "Activity Log", type: .log),
-        .init(imageName: "list.bullet", title: "Challenges", type: .challengeList),
-        .init(imageName: "gear", title: "Settings", type: .settings)
+        TabItemViewModel(imageName: "book", title: "Активность", type: .log),
+        .init(imageName: "list.bullet", title: "Тренировки", type: .challengeList),
+        .init(imageName: "gear", title: "Настройки", type: .settings)
     ]
 }
 
